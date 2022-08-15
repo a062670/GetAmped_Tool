@@ -1,0 +1,70 @@
+{
+  "name": "GetAmped-tool",
+  "version": "0.0.1",
+  "description": "A GetAmped Tool app",
+  "productName": "GetAmpedTool",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env QENV=development quasar dev -m electron",
+    "build": "cross-env QENV=production quasar build -m electron",
+    "xcopy": "XCOPY \"node_modules\\winax\\build\\Release\" \"dist\\electron\\GetAmpedTool-win32-ia32\\resources\\app\\node_modules\\winax\\build\\Release\" /e /y",
+    "rename": "node tools\\rename.js",
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "core-js": "^3.6.5",
+    "dm.dll": "^1.1.0",
+    "moment": "^2.29.1",
+    "quasar": "^1.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app": "^2.0.0",
+    "@quasar/quasar-app-extension-qenv": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^7.0.3",
+    "devtron": "^1.4.0",
+    "electron": "^9.4.4",
+    "electron-builder": "^22.11.7",
+    "electron-debug": "^3.2.0",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-packager": "^14.2.1",
+    "electron-rebuild": "^2.3.5",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^7.7.0",
+    "eslint-webpack-plugin": "^2.4.0"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "build": {
+    "extraResources": {
+      "from": "./src/main/library/",
+      "to": "library"
+    },
+    "files": [
+      "logo.ico",
+      "node_modules",
+      "dist/main/**",
+      "dist/render/**",
+      "!node_modules/vue",
+      "!node_modules/vue-router"
+    ]
+  }
+}
