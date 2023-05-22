@@ -27,6 +27,9 @@
         </div>
         <div class="col-auto">
           <q-btn type="submit" color="accent" label="移動" />
+          <q-btn type="button" color="info" label="點擊" @click="leftClick" />
+          <q-btn type="button" color="info" label="按下" @click="leftDown" />
+          <q-btn type="button" color="info" label="放開" @click="leftUp" />
         </div>
       </div>
     </q-form>
@@ -220,6 +223,27 @@ export default {
       this.$store.dispatch('createThread', this.$route.name);
 
       this.dm.MoveTo(this.setting.mX, this.setting.mY);
+
+      this.$store.dispatch('stopThread');
+    },
+    leftClick() {
+      this.$store.dispatch('createThread', this.$route.name);
+
+      this.dm.LeftClick();
+
+      this.$store.dispatch('stopThread');
+    },
+    leftDown() {
+      this.$store.dispatch('createThread', this.$route.name);
+
+      this.dm.LeftDown();
+
+      this.$store.dispatch('stopThread');
+    },
+    leftUp() {
+      this.$store.dispatch('createThread', this.$route.name);
+
+      this.dm.LeftUp();
 
       this.$store.dispatch('stopThread');
     },
