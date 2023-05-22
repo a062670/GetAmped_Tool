@@ -107,22 +107,22 @@ export default {
     async sell() {
       return this.$lib.script.createPromiseRace(async (resolve, reject) => {
         // 點全部交換
-        await this.$lib.script.moveToEx(60, 410, 30, 20);
+        await this.$lib.script.moveToEx(60, 420, 30, 5);
         await this.$lib.script.delay(10, 10);
         this.dm.LeftClick();
-        await this.$lib.script.delay(1000, 100);
+        await this.$lib.script.delay(2000, 100);
 
         // 點確定
-        await this.$lib.script.moveToEx(525, 375, 30, 20);
+        await this.$lib.script.moveToEx(525, 385, 30, 5);
         await this.$lib.script.delay(10, 10);
         this.dm.LeftClick();
-        await this.$lib.script.delay(1000, 100);
+        await this.$lib.script.delay(3000, 100);
 
         // 點關閉
-        await this.$lib.script.moveToEx(560, 430, 30, 20);
+        await this.$lib.script.moveToEx(560, 440, 30, 5);
         await this.$lib.script.delay(10, 10);
         this.dm.LeftClick();
-        await this.$lib.script.delay(1000, 100);
+        await this.$lib.script.delay(3000, 100);
 
         resolve();
       });
